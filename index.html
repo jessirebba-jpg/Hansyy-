@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happiest Birthday Hansyy 🎀</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #fffaf6;
+  --pink: #df3470;
+  --dark: #704653;
+  --muted: #ad7f8c;
+}
+.birthday-image {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 16px;
+  object-fit: contain;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 25px 12px;
+  font-family: Georgia, serif;
+  color: var(--dark);
+  background:
+    radial-gradient(circle at 10% 20%, #ffe0e9 0, transparent 35%),
+    radial-gradient(circle at 90% 75%, #fbd6e1 0, transparent 35%),
+    linear-gradient(135deg, #fff0f3, #fffaf6, #ffe6ec);
+  overflow-x: hidden;
+}
+
+/* Floating decorations */
+#decorations {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.floaty {
+  position: absolute;
+  bottom: -70px;
+  left: var(--left);
+  font-size: var(--size);
+  opacity: 0;
+  animation: floatUp var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(-15deg) scale(.7);
+    opacity: 0;
+  }
+  12% { opacity: .8; }
+  50% { transform: translateY(-55vh) rotate(20deg) scale(1); }
+  88% { opacity: .8; }
+  100% {
+    transform: translateY(-115vh) rotate(-25deg) scale(.8);
+    opacity: 0;
+  }
+}
+
+/* Tiny twinkling stars */
+.sparkle {
+  position: absolute;
+  left: var(--left);
+  top: var(--top);
+  color: #e7bd55;
+  font-size: var(--size);
+  animation: twinkle 1.8s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.65) rotate(0); }
+  to { opacity: 1; transform: scale(1.25) rotate(25deg); }
+}
+
+/* Main card */
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 680px);
+  margin: 18px auto;
+  padding: 35px 22px 40px;
+  text-align: center;
+  background: rgba(255, 251, 247, .94);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 65px 65px 12px 12px;
+  box-shadow: 0 15px 55px rgba(176, 105, 130, .12);
+  animation: cardAppear 1s ease-out both;
+}
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(25px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ribbon {
+  display: block;
+  margin: 0 auto 15px;
+  font-size: 43px;
+  animation: ribbonWiggle 3s ease-in-out infinite;
+}
+
+@keyframes ribbonWiggle {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.12); }
+}
+
+.eyebrow {
+  color: #bd718a;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 24px 0;
+  font-size: clamp(36px, 8vw, 59px);
+  line-height: 1.12;
+  font-style: italic;
+  font-weight: normal;
+  animation: titleAppear 1.2s ease both;
+}
+
+h1 span {
+  display: inline-block;
+  color: #d6326b;
+  font-weight: bold;
+}
+
+@keyframes titleAppear {
+  from { opacity: 0; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.subtitle {
+  margin: 30px 0;
+  color: var(--muted);
+  font-size: clamp(17px, 4vw, 25px);
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+/* Birthday illustration */
+.picture-frame {
+  width: min(100%, 445px);
+  margin: 25px auto 30px;
+  overflow: hidden;
+  border-radius: 25px;
+  background: #fff0e8;
+  animation: picturePop 1s .25s cubic-bezier(.2, 1.5, .5, 1) both;
+  transition: transform .3s ease;
+}
+
+.picture-frame:hover {
+  transform: translateY(-5px) rotate(-1deg);
+}
+
+.picture-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+@keyframes picturePop {
+  from { opacity: 0; transform: scale(.65) rotate(-5deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.question {
+  margin: 35px 0 28px;
+  font-size: clamp(20px, 4.8vw, 29px);
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+button {
+  width: min(100%, 340px);
+  min-height: 78px;
+  padding: 19px 20px;
+  border-radius: 34px;
+  font-family: Georgia, serif;
+  font-size: clamp(21px, 5vw, 29px);
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+.yes {
+  color: white;
+  background: linear-gradient(135deg, #ed3977, #c91e5e);
+  border: 1px solid #c92360;
+  box-shadow: 0 11px 0 #a91d50, 0 17px 28px #edb4c9;
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 11px 0 #a91d50, 0 17px 28px #edb4c9; }
+  50% { box-shadow: 0 11px 0 #a91d50, 0 17px 38px #e98cac; }
+}
+
+.yes:hover {
+  transform: translateY(-3px);
+}
+
+.no {
+  width: min(100%, 255px);
+  min-height: 72px;
+  color: #71978b;
+  background: #e6faf2;
+  border: 1px solid #c5e9dc;
+  box-shadow: 0 9px 0 #c6e8dd;
+}
+
+.no:hover {
+  transform: translateY(-3px);
+}
+
+.small-note {
+  margin-top: 28px;
+  color: #b28090;
+  font-size: clamp(15px, 4vw, 22px);
+  line-height: 1.5;
+}
+
+#response {
+  min-height: 28px;
+  margin-top: 20px;
+  color: #c62b65;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.footer {
+  margin-top: 28px;
+  color: #c38b9d;
+  font-size: 24px;
+  letter-spacing: 12px;
+}
+
+@media (max-width: 420px) {
+  body { padding: 12px 9px; }
+  .card { padding: 30px 17px 35px; border-radius: 48px 48px 12px 12px; }
+  .eyebrow { letter-spacing: 2.5px; font-size: 12px; }
+  .picture-frame { margin-top: 20px; }
+  button { min-height: 70px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="decorations" aria-hidden="true"></div>
+
+<main class="card">
+  <div class="eyebrow">✦ A tiny page made with love ✦</div>
+
+  <h1>
+    Happiest Birthday,<br>
+    <span>Hansyy🫠❤️‍🩹</span>
+  </h1>
+
+  <p class="subtitle">
+    today, the universe is celebrating you ♡
+  </p>
+  <div>
+    <img
+  src="data:image/webp;base64,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"
+  alt="Hansyy's birthday photo"
+  class="birthday-image"
+>
+  </div>
+  
+
+  <p class="question">
+    Are you ready for your little surprise?
+  </p>
+
+  <div class="buttons">
+    <button class="yes" id="yesButton">
+      YES, SHOW ME ♡
+    </button>
+
+    <button class="no" id="noButton">
+      Not yet
+    </button>
+  </div>
+
+  <div id="response" aria-live="polite"></div>
+
+  <p class="small-note">
+    psst... one button may be a little dramatic
+  </p>
+</main>
+  
+<iframe
+  id="moduleFrame"
+  title="Birthday modules"
+  style="display:none; position:fixed; inset:0; width:100%; height:100%; border:0; z-index:1000; background:white;"
+></iframe>
+
+<script>
+/* Floating hearts, bows, flowers and sparkles */
+const decorations = document.getElementById("decorations");
+
+const floatEmojis = ["✦", "💗", "🎀", "🌸"];
+
+for (let i = 0; i < 24; i++) {
+  const item = document.createElement("span");
+  item.className = "floaty";
+  item.textContent = floatEmojis[i % floatEmojis.length];
+
+  item.style.setProperty("--left", Math.random() * 96 + "%");
+  item.style.setProperty("--size", (16 + Math.random() * 18) + "px");
+  item.style.setProperty("--duration", (9 + Math.random() * 10) + "s");
+  item.style.setProperty("--delay", (-Math.random() * 18) + "s");
+
+  decorations.appendChild(item);
+}
+
+for (let i = 0; i < 15; i++) {
+  const star = document.createElement("span");
+  star.className = "sparkle";
+  star.textContent = ["✦", "✧", "⋆", "✧"][i % 4];
+
+  star.style.setProperty("--left", Math.random() * 96 + "%");
+  star.style.setProperty("--top", Math.random() * 95 + "%");
+  star.style.setProperty("--size", (12 + Math.random() * 15) + "px");
+  star.style.setProperty("--delay", (-Math.random() * 3) + "s");
+
+  decorations.appendChild(star);
+  
+}
+  
+const music = new Audio("./background-music.mp3");
+music.loop = true;
+music.preload = "auto";
+
+const moduleFrame = document.getElementById("moduleFrame");
+const firstModule = document.querySelector("main.card");
+
+function startBirthdayWebsite() {
+    // Start music from the YES button tap
+    music.play().catch(error => {
+        console.log("Music playback blocked:", error);
+    });
+
+    // Hide Module 1 and open Module 2
+    firstModule.style.display = "none";
+    moduleFrame.style.display = "block";
+    moduleFrame.src = "./module2.html";
+}
+/* Yes opens Module 2 */
+
+document.getElementById("yesButton").addEventListener("click", () => {
+    startBirthdayWebsite();
+});
+
+/* A playful response for Not yet */
+const noButton = document.getElementById("noButton");
+const response = document.getElementById("response");
+
+const messages = [
+  "Hehe, Mahiii, the surprise is waiting for you! 🥹🎀",
+  "Just one little tap, please? 🐰💗",
+  "The birthday magic is getting impatient! ✨",
+  "Okayyy, take your time, birthday girl 🫶🏻💕"
+];
+
+let messageIndex = 0;
+
+noButton.addEventListener("click", () => {
+  response.textContent = messages[messageIndex % messages.length];
+  messageIndex++;
+});
+</script>
+</body>
+</html>
