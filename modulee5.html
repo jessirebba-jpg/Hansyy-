@@ -82,10 +82,10 @@ function render(){const m=memories[index];photo.src=m.src;photo.alt=m.alt;captio
 function next(){if(locked||index>=memories.length-1)return;locked=true;button.classList.remove('slide-out','slide-in','flip-in');button.classList.add('flip-out');setTimeout(()=>{index++;render();button.classList.remove('flip-out');button.classList.add('flip-in');void button.offsetWidth;setTimeout(()=>{button.classList.remove('flip-in');locked=false;if(index===memories.length-1)hint.textContent='One last memory — tap the photo to finish ♡';},640);},300);}
 function finish(){slideshow.classList.add('hidden');ending.classList.remove('hidden');cont.classList.remove('hidden');cont.focus();}
 button.addEventListener('click',()=>index<memories.length-1?next():finish());
-window.openSweetMemories=function(){index=0;slideshow.classList.remove('hidden');ending.classList.add('hidden');cont.classList.add('hidden');hint.textContent='Tap the photo for the next memory →';render();};
+window.openA frame full of charm=function(){index=0;slideshow.classList.remove('hidden');ending.classList.add('hidden');cont.classList.add('hidden');hint.textContent='Tap the photo for the next memory →';render();};
 // CONNECTION: Module 5 → Module 6 (Secret Message)
 cont.addEventListener('click', () => {
-  window.location.href = './module6.html';
+  window.location.href = './Modulee6.html';
 });
 render();
 </script>
