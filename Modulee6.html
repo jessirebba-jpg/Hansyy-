@@ -33,11 +33,16 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.52;ba
 <p>Wishing you a truly blessed year ahead with lots of happiness and great success!🫂💋</p>
 <p><strong>Once again, happiest birthday, Hansyy! 🎉💖</strong></p>
 </article>
-<button class="next-module" id="nextModule" type="button" onclick="window.location.href='./modulee7.html'">Continue to your final surprise</button>
-
+<button class="next-module" id="nextModule" type="button"
+onclick="goToModule7()">
+Continue to your final surprise
+</button>
 </main>
 <script>
 function openLetter(){const scene=document.getElementById('scene');scene.classList.add('opened');document.getElementById('hint').style.display='none';document.getElementById('envelopeArea').style.height='125px';setTimeout(()=>{document.getElementById('letter').style.display='block';document.getElementById('nextModule').classList.add('show');document.getElementById('letter').scrollIntoView({behavior:'smooth',block:'start'});},550);}
 
 for(let i=0;i<22;i++){const p=document.createElement('span');p.className='petal';p.textContent=['✿','♡','🌸','✧'][i%4];p.style.left=Math.random()*100+'vw';p.style.animationDuration=(8+Math.random()*10)+'s';p.style.animationDelay=(-Math.random()*15)+'s';p.style.fontSize=(12+Math.random()*13)+'px';document.body.appendChild(p);}
+  function goToModule7() {
+  window.location.href = "modulee7.html";
+  }
 </script></body></html>
